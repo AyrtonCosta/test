@@ -1,0 +1,26 @@
+<form>
+  <div class="container">
+    <h2>BRL EXCHANGE RATE</h2>
+    <input
+      [(ngModel)]="code"
+      name="code"
+      type="text"
+      placeholder="Enter the currency code"
+    />
+    <button (click)="getCurrents()">EXCHANGE RESULT</button>
+  </div>
+</form>
+<div *ngFor="let item of current">
+  <p>{{ item.name }}</p>
+</div>
+<!-- <div>
+  {{ code | json }}
+</div>
+<div></div>
+<div *ngFor="let item of currentEx">
+  <p>
+    {{ item["USDBRL"].name }}
+  </p>
+</div> -->
+<!-- <app-card-current-exchange-rate></app-card-current-exchange-rate>
+<app-card-daily-exchange-rate></app-card-daily-exchange-rate> -->

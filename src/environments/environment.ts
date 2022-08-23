@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  currentExchangeAPI: 'https://economia.awesomeapi.com.br/last',
+  dailyExchangeAPI: 'https://economia.awesomeapi.com.br/json/daily',
 };
 
 /*

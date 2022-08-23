@@ -1,0 +1,46 @@
+hr {
+  margin: 2em;
+  width: 20em;
+  border: 1px solid #e5e5e5;
+}
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-info h3 {
+  font-size: 1.1em;
+}
+
+.card-info p {
+  color: #333333;
+  font-size: 0.9em;
+}
+
+.card-currency h2 {
+  color: #07b0fb;
+  font-size: 1.5em;
+  margin-left: 3em;
+}
+
+.card-exchange-rate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(7, 176, 251, 0.1);
+  width: 20em;
+  height: 4.5em;
+  margin-top: 1em;
+}
+.card-exchange-rate h3 {
+  font-size: 2em;
+  color: #07b0fb;
+  opacity: 1;
+}
