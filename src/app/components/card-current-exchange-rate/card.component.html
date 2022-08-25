@@ -3,13 +3,13 @@
   <div class="card">
     <div class="card-info">
       <h3>Exchange rate now</h3>
-      <p>09/03/2022 - 15H09</p>
+      <p>{{ data.lastUpdatedAt | date: "dd/MM/yyyy HH:mm" }}</p>
     </div>
     <div class="card-currency">
-      <h2>USD/BRL</h2>
+      <h2>{{ data.fromSymbol }}/{{ data.toSymbol }}</h2>
     </div>
   </div>
   <div class="card-exchange-rate">
-    <h3>R$ 5,00</h3>
+    <h3>{{ data.exchangeRate | currency: "BRL" }}</h3>
   </div>
 </div>

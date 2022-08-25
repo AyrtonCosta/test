@@ -2,7 +2,7 @@
   <div class="container">
     <h2>BRL EXCHANGE RATE</h2>
     <input
-      [(ngModel)]="code"
+      [(ngModel)]="toCurrency"
       name="code"
       type="text"
       placeholder="Enter the currency code"
@@ -10,11 +10,13 @@
     <button (click)="getCurrents()">EXCHANGE RESULT</button>
   </div>
 </form>
-<div *ngFor="let item of current | keyvalue">
-  <h1>
-    {{ item.value }}
-  </h1>
-</div>
 
-<app-card-current-exchange-rate></app-card-current-exchange-rate>
-<app-card-daily-exchange-rate></app-card-daily-exchange-rate>
+<app-card-current-exchange-rate
+  [data]="current"
+></app-card-current-exchange-rate>
+
+<app-card-daily-exchange-rate
+  [toogle]="toogle"
+  [fromSymbol]="fromCurrency"
+  [toSymbol]="toCurrency"
+></app-card-daily-exchange-rate>

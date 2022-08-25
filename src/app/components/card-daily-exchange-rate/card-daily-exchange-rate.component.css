@@ -27,6 +27,7 @@
   width: 19em;
   height: 8em;
   margin: 0.6em;
+  margin-bottom: 1em;
 }
 
 .card-date {
@@ -60,4 +61,26 @@
 }
 .close-dif span {
   color: red;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+button span {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  color: #07b0fb;
+}
+
+.spinner {
+  padding: 10px;
+  display: flex;
+  background: #fff;
+  justify-content: center;
+  align-content: center;
 }

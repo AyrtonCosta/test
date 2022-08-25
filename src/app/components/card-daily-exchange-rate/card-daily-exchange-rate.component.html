@@ -4,79 +4,41 @@
       <h4>LAST 30 DAY</h4>
     </div>
     <div class="show-cards">
-      <span>+</span>
+      <button (click)="getCurrentDaily()">
+        <span>{{ showCards() }}</span>
+      </button>
     </div>
   </div>
-  <div class="card">
-    <h5 class="card-date">09/03/2022</h5>
-    <div class="card-content">
-      <p>open: <span>R$5.0666</span></p>
-      <p>hight: <span>R$5.0666</span></p>
-      <p>close: <span>R$5.0666</span></p>
-      <p>low: <span>R$5.0666</span></p>
-    </div>
-    <div class="close-dif">
-      <p>CLOSE DIF(%): <span>-1.15%</span></p>
-    </div>
-  </div>
-  <div class="card">
-    <h5 class="card-date">09/03/2022</h5>
-    <div class="card-content">
-      <p>open: <span>R$5.0666</span></p>
-      <p>hight: <span>R$5.0666</span></p>
-      <p>close: <span>R$5.0666</span></p>
-      <p>low: <span>R$5.0666</span></p>
-    </div>
-    <div class="close-dif">
-      <p>CLOSE DIF(%): <span>-1.15%</span></p>
-    </div>
-  </div>
-  <div class="card">
-    <h5 class="card-date">09/03/2022</h5>
-    <div class="card-content">
-      <p>open: <span>R$5.0666</span></p>
-      <p>hight: <span>R$5.0666</span></p>
-      <p>close: <span>R$5.0666</span></p>
-      <p>low: <span>R$5.0666</span></p>
-    </div>
-    <div class="close-dif">
-      <p>CLOSE DIF(%): <span>-1.15%</span></p>
-    </div>
-  </div>
-  <div class="card">
-    <h5 class="card-date">09/03/2022</h5>
-    <div class="card-content">
-      <p>open: <span>R$5.0666</span></p>
-      <p>hight: <span>R$5.0666</span></p>
-      <p>close: <span>R$5.0666</span></p>
-      <p>low: <span>R$5.0666</span></p>
-    </div>
-    <div class="close-dif">
-      <p>CLOSE DIF(%): <span>-1.15%</span></p>
-    </div>
-  </div>
-  <div class="card">
-    <h5 class="card-date">09/03/2022</h5>
-    <div class="card-content">
-      <p>open: <span>R$5.0666</span></p>
-      <p>hight: <span>R$5.0666</span></p>
-      <p>close: <span>R$5.0666</span></p>
-      <p>low: <span>R$5.0666</span></p>
-    </div>
-    <div class="close-dif">
-      <p>CLOSE DIF(%): <span>-1.15%</span></p>
-    </div>
-  </div>
-  <div class="card">
-    <h5 class="card-date">09/03/2022</h5>
-    <div class="card-content">
-      <p>open: <span>R$5.0666</span></p>
-      <p>hight: <span>R$5.0666</span></p>
-      <p>close: <span>R$5.0666</span></p>
-      <p>low: <span>R$5.0666</span></p>
-    </div>
-    <div class="close-dif">
-      <p>CLOSE DIF(%): <span>-1.15%</span></p>
+  <div *ngIf="currentDaily.length > 0 && toogle; else spinner">
+    <div *ngIf="toogle">
+      <div class="card" *ngFor="let item of currentDaily">
+        <h5 class="card-date">{{ item.lastUpdateAt }}</h5>
+        <div class="card-content">
+          <p>
+            open: <span>R${{ item.open }}</span>
+          </p>
+          <p>
+            hight: <span>R${{ item.high }}</span>
+          </p>
+          <p>
+            close: <span>R${{ item.close }}</span>
+          </p>
+          <p>
+            low: <span>R${{ item.low }}</span>
+          </p>
+        </div>
+        <div class="close-dif">
+          <p>
+            CLOSE DIF(%): <span> {{ closeDif(item.open, item.close) }}</span>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<ng-template #spinner>
+  <div class="spinner" *ngIf="toogle">
+    <app-spinner></app-spinner>
+  </div>
+</ng-template>

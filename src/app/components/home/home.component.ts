@@ -8,17 +8,28 @@ import { CurrentExchangeRate } from 'src/app/CurrentExchangeRate';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  code: string = '';
+  public toCurrency: string = 'USD';
 
-  current!: CurrentExchangeRate[];
+  public fromCurrency: string = 'BRL';
+
+  public current!: CurrentExchangeRate;
+
+  public toogle: boolean = true;
 
   constructor(private currentRate: CurrentRateService) {}
 
-  ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.getCurrents();
+  }
 
-  getCurrents() {
+  public getCurrents() {
+    this.showCard();
     this.currentRate
-      .getMoeda(this.code)
-      .subscribe((current) => (this.current = current as []));
+      .getMoeda(this.toCurrency)
+      .subscribe((current) => (this.current = current));
+  }
+
+  public showCard(): void {
+    this.toogle = !this.toogle;
   }
 }

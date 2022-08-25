@@ -9,22 +9,23 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CurrentRateService {
-  current!: CurrentExchangeRate[];
+  current!: CurrentExchangeRate;
+
   private url =
-    'https://api-brl-exchange.actionlabs.com.br/api/1.0/open/currentExchangeRate?apiKey,from_symbol,to_symbol&apiKey=RVZG0GHEV2KORLNA';
+    'https://api-brl-exchange.actionlabs.com.br/api/1.0/open/currentExchangeRate?apiKey=RVZG0GHEV2KORLNA';
 
   constructor(private http: HttpClient) {}
 
-  getMoeda(typeCurrency: string): Observable<CurrentExchangeRate[]> {
+  getMoeda(typeCurrency: string): Observable<CurrentExchangeRate> {
     const fromSymbol = `${typeCurrency}`;
     const toSymbol = 'BRL';
     return this.http
-      .get<CurrentExchangeRate[]>(
+      .get<CurrentExchangeRate>(
         `${this.url}&from_symbol=${fromSymbol}&to_symbol=${toSymbol}`
       )
       .pipe(
         map((res: any) => {
-          let currency: [] = res;
+          let currency = res;
           return currency;
         })
       );
