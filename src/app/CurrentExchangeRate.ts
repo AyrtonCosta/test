@@ -1,6 +1,7 @@
 export interface CurrentExchangeRate {
-  bid: string;
-  code: string;
-  codein: string;
-  create_date: string;
+  exchangeRate: number;
+  fromSymbol: string;
+  lastUpdatedAt: Date;
+  success: boolean;
+  toSymbol: string;
 }

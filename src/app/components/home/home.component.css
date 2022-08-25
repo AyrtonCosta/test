@@ -21,6 +21,7 @@
   width: 20.6em;
   height: 3.5em;
   cursor: pointer;
+  text-transform: uppercase;
 }
 textarea:focus,
 input:focus {

@@ -4,8 +4,6 @@
 
 export const environment = {
   production: false,
-  currentExchangeAPI: 'https://economia.awesomeapi.com.br/last',
-  dailyExchangeAPI: 'https://economia.awesomeapi.com.br/json/daily',
 };
 
 /*

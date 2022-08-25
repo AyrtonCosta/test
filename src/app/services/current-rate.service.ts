@@ -3,25 +3,30 @@ import { CurrentExchangeRate } from './../CurrentExchangeRate';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { environment } from 'src/environments/environment';
 import { map, Observable } from 'rxjs';
-import { AllCurrency } from '../AllCurrency';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CurrentRateService {
-  private url = environment.currentExchangeAPI;
+  current!: CurrentExchangeRate[];
+  private url =
+    'https://api-brl-exchange.actionlabs.com.br/api/1.0/open/currentExchangeRate?apiKey,from_symbol,to_symbol&apiKey=RVZG0GHEV2KORLNA';
 
   constructor(private http: HttpClient) {}
 
-  getMoeda(typeCurrency: string): Observable<AllCurrency[]> {
-    const type = `${typeCurrency}-BRL`;
-    return this.http.get<AllCurrency[]>(`${this.url}/${type}`).pipe(
-      map((res: any) => {
-        let t: [] = res;
-        return t;
-      })
-    );
+  getMoeda(typeCurrency: string): Observable<CurrentExchangeRate[]> {
+    const fromSymbol = `${typeCurrency}`;
+    const toSymbol = 'BRL';
+    return this.http
+      .get<CurrentExchangeRate[]>(
+        `${this.url}&from_symbol=${fromSymbol}&to_symbol=${toSymbol}`
+      )
+      .pipe(
+        map((res: any) => {
+          let currency: [] = res;
+          return currency;
+        })
+      );
   }
 }

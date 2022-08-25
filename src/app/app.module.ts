@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardCurrentExchangeRateComponent } from './components/card-current-exchange-rate/card.component';
 import { CardDailyExchangeRateComponent } from './components/card-daily-exchange-rate/card-daily-exchange-rate.component';
+import { CurrentRateService } from './services/current-rate.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { CardDailyExchangeRateComponent } from './components/card-daily-exchange
     CardDailyExchangeRateComponent,
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule],
-  providers: [],
+  providers: [CurrentRateService, HttpClientModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
